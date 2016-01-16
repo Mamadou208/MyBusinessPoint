@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/colorTeal"
     android:orientation="vertical"
-    android:contextClickable="false">
+    android:contextClickable="true">
 
     <TextView
         android:id="@+id/txtplaceid"

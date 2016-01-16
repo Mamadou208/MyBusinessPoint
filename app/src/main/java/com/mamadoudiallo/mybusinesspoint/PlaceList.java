@@ -2,26 +2,22 @@ package com.mamadoudiallo.mybusinesspoint;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
+
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.List;
 
 public class PlaceList extends Activity {
-    private SimpleCursorAdapter dataAdapter;
+
     DBController controller = new DBController(this);
     ListView ls;
     TextView infotext;
@@ -39,13 +35,12 @@ public class PlaceList extends Activity {
 
     private void displayListView() {
         try {
-            //Cursor cursor = controller.();
             List<HashMap<String, String>> data = controller.getAllPlace();
             if (data.size() != 0) {
                 // The desired columns to be bound
                 String[] columns = new String[]{
-                        controller.id,
                         controller.subject,
+                        controller.detail,
                         //controller.detail,
                         //controller.teacher,
                         // controller.grade,
@@ -75,12 +70,6 @@ public class PlaceList extends Activity {
 
                         Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
                         intent.putExtra("selectedItemId", id);
-                        /*intent.putExtra("subject", controller.subject);
-                        intent.putExtra("teacher", provincedesclabel);
-                        intent.putExtra("grade", prvImg);
-                        intent.putExtra("detail", dialogmsg);*/
-
-
                         startActivity(intent);
 
                     }

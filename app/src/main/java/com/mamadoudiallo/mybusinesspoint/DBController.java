@@ -36,7 +36,7 @@ public class DBController extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database) {
         String query;
-        query = "CREATE TABLE IF NOT EXISTS " + tablename + "(" + id + " integer primary key, " + subject + " TEXT, " + detail + " TEXT, " + teacher + " TEXT, " + grade + " INTEGER, " + status + " INTEGER)";
+        query = "CREATE TABLE IF NOT EXISTS " + tablename + "(" + id + " integer primary key, " + subject + " TEXT, " + detail + " TEXT, " + teacher + " TEXT, " + grade + " INTEGER, " + status + " INTEGER )";
         database.execSQL(query);
     }
 
@@ -99,7 +99,7 @@ public class DBController extends SQLiteOpenHelper {
             businessPoint.setDetail(cursor.getString(2));
             businessPoint.setTeacher(cursor.getString(3));
             businessPoint.setGrade(cursor.getString(4));
-            businessPoint.setStatus(Integer.parseInt(cursor.getString(5)));
+            businessPoint.setStatus(cursor.getString(5));
 
             //log
             Log.d("getBusinessPointById(" + id + ")", businessPoint.toString());

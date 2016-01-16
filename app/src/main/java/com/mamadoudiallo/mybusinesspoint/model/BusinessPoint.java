@@ -4,8 +4,8 @@ package com.mamadoudiallo.mybusinesspoint.model;
  * Created by Home on 16/01/2016.
  */
 public class BusinessPoint {
-    private int id, status;
-    private String subject, detail, teacher, grade;
+    private int id;
+    private String subject, detail, teacher, grade, status;
 
     public BusinessPoint() {
     }
@@ -14,13 +14,13 @@ public class BusinessPoint {
         this.id = id;
     }
 
-    public BusinessPoint(int id, int status, String subject, String detail, String teacher, String grade) {
+    public BusinessPoint(int id, String subject, String detail, String teacher, String grade,  String status) {
         this.id = id;
-        this.status = status;
         this.subject = subject;
         this.detail = detail;
         this.teacher = teacher;
         this.grade = grade;
+        this.status = status;
     }
 
     public int getId() {
@@ -31,11 +31,11 @@ public class BusinessPoint {
         this.id = id;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
