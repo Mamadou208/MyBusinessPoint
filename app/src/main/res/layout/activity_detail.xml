@@ -7,29 +7,48 @@
     android:orientation="vertical"
     tools:context="com.mamadoudiallo.mybusinesspoint.DetailActivity">
     <TextView
-        android:id="@+id/headlines"
+        android:id="@+id/txtsubject"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="Headline"
+        android:text="Subject"
         android:background="#99CC00"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#0000dc" />
-
     <TextView
-        android:id="@+id/pub_date"
+        android:id="@+id/txtteacher"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:padding="3dp"
+        android:text="Teacher"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:background="#33B5E5"
+        android:textColor="#0000dc" />
+    <TextView
+        android:id="@+id/txtgrade"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
         android:padding="3dp"
-        android:text="Published Date"
+        android:text="Grade"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:background="#33B5E5"
+        android:textColor="#0000dc" />
+    <TextView
+        android:id="@+id/txtstatus"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:padding="3dp"
+        android:text="Status"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:background="#33B5E5"
         android:textColor="#0000dc" />
 
     <TextView
-        android:id="@+id/description"
+        android:id="@+id/txtdetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
