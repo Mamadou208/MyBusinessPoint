@@ -1,4 +1,5 @@
 package com.mamadoudiallo.mybusinesspoint;
+
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -14,14 +15,19 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-public class MainActivity extends Activity {
-    DBController controller = new DBController(this);
-    Button add, view, update, delete;
-    EditText placeid, subject, detail, teacher, grade;
-    //Switch status;
-    private int swTatus;
 
+import com.mamadoudiallo.mybusinesspoint.model.BusinessPoint;
+
+public class MainActivity extends Activity {
+
+    public Button add, view, update, delete;
+    public EditText placeid, subject, detail, teacher, grade;
+    private int selectedItemId;
+
+    BusinessPoint businessPoint = new BusinessPoint();
+    DBController controller = new DBController(this);
     TextView infotext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +37,7 @@ public class MainActivity extends Activity {
         detail = (EditText) findViewById(R.id.edcountry);
         teacher = (EditText) findViewById(R.id.edteacher);
         grade = (EditText) findViewById(R.id.edgrade);
-        //status = (Switch) findViewById(R.id.swstatus);
+
 
         add = (Button) findViewById(R.id.btnadd);
         update = (Button) findViewById(R.id.btnupdate);
@@ -39,18 +45,12 @@ public class MainActivity extends Activity {
         view = (Button) findViewById(R.id.btnview);
         infotext = (TextView) findViewById(R.id.txtresulttext);
 
-        /*status.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // true if the switch is in the On position
-                if(isChecked) {
-                    //do stuff when Switch is ON
-                    swTatus =1;
-                }else{
-                    swTatus =0;
-                }
-            }
-        });*/
+        Intent i = getIntent();
+        selectedItemId = i.getIntExtra("selectedItemId", 0);
 
+        if (selectedItemId >= 1) {
+            fullForm();
+        }
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +96,6 @@ public class MainActivity extends Activity {
                         cv.put("detail", detail.getText().toString());
                         cv.put("teacher", teacher.getText().toString());
                         cv.put("grade", Integer.parseInt(grade.getText().toString()));
-                        //cv.put("status", swTatus);
 
                         db.update("business_points", cv, "id=" + placeid.getText().toString(), null);
                         Toast.makeText(MainActivity.this,
@@ -130,11 +129,23 @@ public class MainActivity extends Activity {
             }
         });
     }
+
+    public void fullForm() {
+        businessPoint = controller.getBusinessPointById(selectedItemId);
+        placeid.setText(Integer.toString(businessPoint.getId()));
+        subject.setText(businessPoint.getSubject());
+        detail.setText(businessPoint.getDetail());
+        teacher.setText(businessPoint.getTeacher());
+        grade.setText(businessPoint.getGrade());
+
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

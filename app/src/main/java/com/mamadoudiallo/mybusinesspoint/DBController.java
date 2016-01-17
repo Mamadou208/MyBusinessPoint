@@ -1,5 +1,6 @@
 package com.mamadoudiallo.mybusinesspoint;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -109,5 +110,26 @@ public class DBController extends SQLiteOpenHelper {
         // 5. return businessPoint
         return businessPoint;
 
+    }
+
+    public BusinessPoint updateBusinessPoint(){
+        BusinessPoint businessPoint = new BusinessPoint();
+        try {
+                SQLiteDatabase db = this.getWritableDatabase();
+                ContentValues cv = new ContentValues();
+
+                cv.put("subject", businessPoint.getSubject());
+                cv.put("detail", businessPoint.getDetail());
+                cv.put("teacher", businessPoint.getTeacher());
+                cv.put("grade", businessPoint.getGrade());
+
+                db.update("business_points", cv, "id=" + businessPoint.getId(), null);
+
+                //infotext.setText("Updated Successfully");
+
+        } catch (Exception ex) {
+            Log.d("Error", ex.getMessage().toString());
+        }
+        return businessPoint;
     }
 }

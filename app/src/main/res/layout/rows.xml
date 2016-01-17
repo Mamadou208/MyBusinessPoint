@@ -2,16 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/list_bg" >
+    android:background="@drawable/list_bg"
+    android:minHeight="80dp">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/image"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_centerVertical="true"
         android:layout_margin="5dp"
         android:background="#444"
-        android:padding="3dp" />
+        android:padding="3dp" />-->
 
     <TextView
         android:id="@+id/txtplaceid"
@@ -19,12 +20,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dip"
         android:layout_toLeftOf="@+id/txtGrade"
-        android:layout_toRightOf="@+id/image"
         android:maxLines="1"
         android:text="title"
         android:textColor="@android:color/black"
-        android:textSize="15dip"
-        android:textStyle="bold" />
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="5dp" />
 
     <TextView
         android:id="@+id/txtplacename"
@@ -32,23 +33,24 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtplaceid"
         android:layout_toLeftOf="@+id/imageView1"
-        android:layout_toRightOf="@+id/image"
         android:ellipsize="end"
         android:maxLines="3"
         android:text="Detail"
-        android:textColor="@android:color/black"
-        android:textSize="13dip" />
+        android:textColor="@android:color/darker_gray"
+        android:textSize="13dip"
+        android:layout_marginLeft="5dp" />
 
     <TextView
         android:id="@+id/txtGrade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="5dip"
         android:text="Grade"
+        android:textStyle="bold"
         android:textColor="@android:color/black"
-        android:textSize="12dip" />
+        android:textSize="14dip" />
 
     <ImageView
         android:id="@+id/imageView1"
