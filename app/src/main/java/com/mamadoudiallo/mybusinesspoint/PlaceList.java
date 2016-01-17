@@ -43,7 +43,7 @@ public class PlaceList extends Activity {
                         controller.detail,
                         //controller.detail,
                         //controller.teacher,
-                        // controller.grade,
+                        controller.grade,
                         //controller.status
 
                 };
@@ -52,7 +52,7 @@ public class PlaceList extends Activity {
                 int[] to = new int[]{
                         R.id.txtplaceid,
                         R.id.txtplacename,
-                        //R.id.txt
+                        R.id.txtGrade
                 };
 
                 // create the adapter using the cursor pointing to the desired data

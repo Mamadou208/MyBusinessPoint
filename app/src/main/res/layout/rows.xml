@@ -1,44 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:minHeight="80dp"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/colorTeal"
-    android:orientation="vertical"
-    android:contextClickable="true">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_bg" >
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        android:layout_margin="5dp"
+        android:background="#444"
+        android:padding="3dp" />
 
     <TextView
         android:id="@+id/txtplaceid"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="News Headline"
-        android:padding="3dp"
-        android:textStyle="bold"
-        android:textColor="#FFF"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_marginTop="5dip"
+        android:layout_toLeftOf="@+id/txtGrade"
+        android:layout_toRightOf="@+id/image"
+        android:maxLines="1"
+        android:text="title"
+        android:textColor="@android:color/black"
+        android:textSize="15dip"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txtplacename"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="19dp"
-        android:text="detail"
-        android:padding="3dp"
-        android:textColor="#FFF"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:layout_below="@+id/txtplaceid"
+        android:layout_toLeftOf="@+id/imageView1"
+        android:layout_toRightOf="@+id/image"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:text="Detail"
+        android:textColor="@android:color/black"
+        android:textSize="13dip" />
 
-   <!-- <TextView
-        android:id="@+id/txtcountry"
+    <TextView
+        android:id="@+id/txtGrade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="19dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dip"
         android:text="Grade"
-        android:padding="3dp"
-        android:textColor="#FFF"
-        android:textAppearance="?android:attr/textAppearanceSmall" />-->
+        android:textColor="@android:color/black"
+        android:textSize="12dip" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="3dp"
+        android:src="@drawable/imgright" />
+
+</RelativeLayout>

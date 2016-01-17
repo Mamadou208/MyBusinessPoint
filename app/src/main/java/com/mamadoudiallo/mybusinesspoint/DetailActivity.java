@@ -36,7 +36,7 @@ public class DetailActivity extends AppCompatActivity {
         status = (TextView) findViewById(R.id.txtstatus);
 
         Intent i = getIntent();
-        selectedItemId = (int)i.getLongExtra("selectedItemId", 1L);
+        selectedItemId = (int)i.getLongExtra("selectedItemId", +1L);
 
         displayDetail();
 

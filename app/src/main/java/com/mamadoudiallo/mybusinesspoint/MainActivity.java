@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
     DBController controller = new DBController(this);
     Button add, view, update, delete;
     EditText placeid, subject, detail, teacher, grade;
-    Switch status;
+    //Switch status;
     private int swTatus;
 
     TextView infotext;
@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
         detail = (EditText) findViewById(R.id.edcountry);
         teacher = (EditText) findViewById(R.id.edteacher);
         grade = (EditText) findViewById(R.id.edgrade);
-        status = (Switch) findViewById(R.id.swstatus);
+        //status = (Switch) findViewById(R.id.swstatus);
 
         add = (Button) findViewById(R.id.btnadd);
         update = (Button) findViewById(R.id.btnupdate);
@@ -39,7 +39,7 @@ public class MainActivity extends Activity {
         view = (Button) findViewById(R.id.btnview);
         infotext = (TextView) findViewById(R.id.txtresulttext);
 
-        status.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        /*status.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // true if the switch is in the On position
                 if(isChecked) {
@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
                     swTatus =0;
                 }
             }
-        });
+        });*/
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +72,7 @@ public class MainActivity extends Activity {
                         cv.put("detail", detail.getText().toString());
                         cv.put("teacher", teacher.getText().toString());
                         cv.put("grade", Integer.parseInt(grade.getText().toString()));
-                        cv.put("status", swTatus);
+                        cv.put("status", 0);
                         db.insert("business_points", null, cv);
                         db.close();
                         infotext.setText("Place added Successfully");
@@ -96,7 +96,7 @@ public class MainActivity extends Activity {
                         cv.put("detail", detail.getText().toString());
                         cv.put("teacher", teacher.getText().toString());
                         cv.put("grade", Integer.parseInt(grade.getText().toString()));
-                        cv.put("status", swTatus);
+                        //cv.put("status", swTatus);
 
                         db.update("business_points", cv, "id=" + placeid.getText().toString(), null);
                         Toast.makeText(MainActivity.this,

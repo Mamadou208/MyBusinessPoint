@@ -49,13 +49,6 @@
         android:layout_weight="1"
         android:layout_margin="5dp"
         android:hint="GRADE" />
-    <Switch
-        android:layout_width="match_parent"
-        android:id="@+id/swstatus"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_margin="5dp"
-        android:hint="STATUS" />
 
     <LinearLayout
         android:layout_width="match_parent"

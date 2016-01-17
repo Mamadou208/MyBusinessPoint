@@ -27,7 +27,7 @@ public class DBController extends SQLiteOpenHelper {
 
     private static final String tablename = "business_points";  // tablename
     private static final String databasename = "businessPoint"; // Dtabasename
-    private static final int versioncode = 1; //versioncode of the database
+    private static final int versioncode = 2; //versioncode of the database
 
     public DBController(Context context) {
         super(context, databasename, null, versioncode);
