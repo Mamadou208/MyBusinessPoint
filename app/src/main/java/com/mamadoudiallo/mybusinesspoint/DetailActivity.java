@@ -3,6 +3,7 @@ package com.mamadoudiallo.mybusinesspoint;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,7 +24,8 @@ import java.util.List;
 
 public class DetailActivity extends AppCompatActivity {
 
-    Button update, markCompleted;
+    FloatingActionButton update;
+    Button markCompleted;
     TextView subject, detail, teacher, grade, status;
     private int selectedItemId;
 
@@ -41,7 +43,7 @@ public class DetailActivity extends AppCompatActivity {
         status = (TextView) findViewById(R.id.txtstatus);
 
         markCompleted = (Button) findViewById(R.id.btn_achieved);
-        update = (Button) findViewById(R.id.update_btn);
+        update = (FloatingActionButton) findViewById(R.id.update_btn);
 
         Intent i = getIntent();
         selectedItemId = (int)i.getLongExtra("selectedItemId", 1L) +1;
